@@ -1,4 +1,4 @@
-# Linkly — URL Shortener
+#  URL Shortener
 
 Linkly is a lightweight URL-shortening web app built with **Node.js, Express, EJS, and MongoDB**. It turns long destination URLs into compact links and redirects visitors to the original page.
 
