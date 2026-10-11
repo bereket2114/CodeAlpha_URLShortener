@@ -1,0 +1,24 @@
+{
+  "name": "linkly-url-shortener",
+  "version": "1.1.0",
+  "description": "A responsive URL shortener built with Express, EJS, and MongoDB.",
+  "license": "ISC",
+  "author": "Bereket Woldemariyam",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.1",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.1",
+    "nodemon": "^3.1.14",
+    "nanoid": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
