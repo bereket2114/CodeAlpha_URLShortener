@@ -5,7 +5,6 @@ module.exports = {
           try {
               const { code } = req.query;
               const record = code ? await urlModel.findOne({ shortURL: code }) : null;
-              return res.json({ record, origin: `${req.protocol}://${req.get('host')}` });
               return res.render('index', { record, origin: `${req.protocol}://${req.get('host')}` });
           } catch (err) {
               console.error('Unable to load the URL shortener:', err);
