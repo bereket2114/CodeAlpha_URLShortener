@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080d19">
+  <meta name="theme-color" content="#5457E8">
   <meta name="description" content="Turn long links into short, easy-to-share URLs with Linkly. Simple, fast, and reliable link shortening.">
   <title>Linkly — Make every link shorter</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,42 +17,49 @@
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M9.6 14.4 14.4 9.6M8.1 16.1l-1.2 1.2a4 4 0 0 1-5.7-5.7l4-4a4 4 0 0 1 5.7 0M15.9 7.9l1.2-1.2a4 4 0 0 1 5.7 5.7l-4 4a4 4 0 0 1-5.7 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </span>
-        <span>linkly<small>links, simplified</small></span>
+        <span>Linkly<small>Links, simplified</small></span>
       </a>
       <div class="nav-right">
-        <span class="nav-label">A cleaner way to share</span>
-        <span class="status-pill"><span class="status-dot"></span> Ready to shorten</span>
+        <span class="nav-label">A clearer way to share</span>
+        <span class="status-pill"><span class="status-dot"></span> URL shortener</span>
       </div>
     </header>
 
     <main>
       <section class="hero">
-        <span class="eyebrow"><span class="eyebrow-mark"></span> Your links, upgraded</span>
-        <h1>Long links.<br><span class="gradient-text">Less baggage.</span></h1>
-        <p class="hero-copy">Make your URLs short, neat, and ready to share. One simple tool to turn messy links into something memorable.</p>
+        <span class="eyebrow"><span class="eyebrow-mark"></span> Simple, shareable links</span>
+        <h1>Shorten links.<br><span class="gradient-text">Share with ease.</span></h1>
+        <p class="hero-copy">Turn long URLs into clean, easy-to-share links in seconds.</p>
       </section>
 
       <section class="main-grid" aria-label="URL shortener">
         <div class="card create-card">
-          <p class="card-kicker">01 / Create a short link</p>
-          <h2>Shorten your URL</h2>
-          <p class="card-intro">Paste your destination below and we’ll create a compact link for you.</p>
+          <div class="card-heading">
+            <div>
+              <p class="card-kicker">Create a short link</p>
+              <h2>Your destination, made shareable.</h2>
+            </div>
+            <span class="heading-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9.5 14.5 14.5 9.5M8.1 16.1l-1.2 1.2a4 4 0 0 1-5.7-5.7l4-4a4 4 0 0 1 5.7 0M15.9 7.9l1.2-1.2a4 4 0 0 1 5.7 5.7l-4 4a4 4 0 0 1-5.7 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <p class="card-intro">Paste the original URL below. Your new short link will appear here when it’s ready.</p>
           <form action="/api/shorten" method="post" id="shortenForm">
             <label class="field-label" for="longUrl">Destination URL</label>
             <div class="input-wrap">
               <svg class="input-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               <input class="url-input" type="url" id="longUrl" name="originalUrl" placeholder="https://example.com/your/very/long/link" required autocomplete="url" inputmode="url" maxlength="2048" aria-describedby="urlHint">
             </div>
-            <p class="form-hint" id="urlHint">Include the full address, starting with https:// or http://</p>
+            <p class="form-hint" id="urlHint">Use the complete address, including https:// or http://</p>
             <button class="primary-button" type="submit">
-              Create my short link
+              Shorten link
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </form>
 
           <% if (record) { const shortLink = `${(typeof origin !== 'undefined' && origin) ? origin : ''}/${record.shortURL}`; %>
           <section class="result-card" id="result" aria-live="polite" aria-label="Your shortened URL">
-            <div class="result-heading"><span class="success-icon" aria-hidden="true">✓</span> Your short link is ready</div>
+            <div class="result-heading"><span class="success-icon" aria-hidden="true">✓</span><span>Your short link is ready</span></div>
             <div class="result-url-row">
               <a class="result-link" id="shortLink" href="/<%= record.shortURL %>" target="_blank" rel="noopener noreferrer"><%= shortLink %></a>
               <button class="copy-button" type="button" id="copyButton" data-copy="<%= shortLink %>">Copy link</button>
@@ -64,15 +71,16 @@
 
         <aside class="side-stack" aria-label="Why use Linkly">
           <section class="card side-card">
-            <h3>Made for sharing</h3>
+            <p class="side-kicker">Why Linkly</p>
+            <h3>Simple, clear, and ready when you are.</h3>
             <div class="feature-list">
               <div class="feature">
                 <span class="feature-icon" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-                <div><h4>Clean & compact</h4><p>Turn long, cluttered addresses into short links that fit anywhere.</p></div>
+                <div><h4>Clean & compact</h4><p>Turn long addresses into short links that fit naturally wherever you share.</p></div>
               </div>
               <div class="feature">
                 <span class="feature-icon" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 3 20 6v5c0 5-3.4 8.1-8 10-4.6-1.9-8-5-8-10V6l8-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Direct redirects</h4><p>Your short link takes people to the original destination.</p></div>
+                <div><h4>Direct destination</h4><p>Each short link opens the original address you chose.</p></div>
               </div>
               <div class="feature">
                 <span class="feature-icon" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h6M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
@@ -82,7 +90,8 @@
           </section>
 
           <section class="card workflow-card">
-            <h3>Three steps. One link.</h3>
+            <p class="side-kicker">How it works</p>
+            <h3>From long URL to ready-to-share.</h3>
             <div class="steps">
               <div class="step"><span class="step-number">1</span><p><strong>Paste</strong><br>Add the URL you want to share.</p></div>
               <div class="step"><span class="step-number">2</span><p><strong>Shorten</strong><br>We create a unique short code.</p></div>
