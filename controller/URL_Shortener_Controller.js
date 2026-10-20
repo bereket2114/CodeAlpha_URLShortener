@@ -3,9 +3,11 @@ const urlModel = require('../model/urlSchema');
 module.exports = {
     getMainPage: async (req, res) => {
           try {
+            
               const { code } = req.query;
               const record = code ? await urlModel.findOne({ shortURL: code }) : null;
               return res.render('index', { record, origin: `${req.protocol}://${req.get('host')}` });
+
           } catch (err) {
               console.error('Unable to load the URL shortener:', err);
               return res.status(500).send('Something went wrong while loading the page.');
